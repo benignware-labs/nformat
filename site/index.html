@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link type="text/css" rel="stylesheet" href="http://cdn.rawgit.com/sindresorhus/github-markdown-css/gh-pages/github-markdown.css">
+    <link type="text/css" rel="stylesheet" href="http://cdn.rawgit.com/richleland/pygments-css/master/github.css">
+    <title>nformat</title>
+    <style>
+    
+      body {
+        font-family: Helvetica, Arial, sans-serif;
+      }
+          
+      .highlight-example:after {
+        color: #959595;
+        content: "Example";
+        font-size: 12px;
+        font-weight: 700;
+        left: 15px;
+        letter-spacing: 1px;
+        position: absolute;
+        text-transform: uppercase;
+        top: 15px;
+      }
+      
+      .highlight-example {
+        border-color: #e5e5e5 #eee #eee;
+        border-style: solid;
+        border-width: 1px 0;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05) inset;
+        margin: 0 -15px 15px;
+        padding: 45px 15px 15px;
+        position: relative;
+      }
+      
+      .highlight-example {
+        background-color: #fff;
+        border-color: #ddd;
+        border-radius: 4px 4px 0 0;
+        border-width: 1px;
+        box-shadow: none;
+        margin-left: 0;
+        margin-right: 0;
+      }
+      
+      .highlight-example + .highlight {
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border-width: 1px;
+        margin: -16px 0 15px;
+        border-width: 1px;
+      }
+
+      .highlight {
+        background-color: #f7f7f9;
+        border: 1px solid #e1e1e8;
+        border-radius: 4px;
+        margin-bottom: 14px;
+        padding: 0;
+      }
+
+      .highlight pre {
+        background-color: transparent;
+        border: 0 none;
+        margin-bottom: 0;
+        margin-top: 0;
+        padding: 0;
+      }
+      
+      article.markdown-body {
+        max-width: 728px;
+        margin: 50px auto;
+      }
+      
+      body > footer {
+        border-top: 1px solid #eee;
+        color: #767676;
+        font-size: 12px;
+        line-height: 1.5;
+        margin-top: 40px;
+        padding-bottom: 40px;
+        padding-top: 40px;
+        position: relative;
+        max-width: 728px;
+        margin: 50px auto;
+      }
+      
+      body > footer > * {
+        float: left;
+        line-height: 16px;
+        font-size: 12px;
+      }
+      body > footer > *:last-child {
+        float: right;
+      }
+      
+      body > footer > nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      body > footer > nav ul li {
+        display: inline-block;
+      }
+      
+      body > footer > nav ul li + li {
+        margin-left: 10px;
+      }
+      
+      a {
+        color: #4078c0;
+        text-decoration: none;
+      }
+      
+    </style>
+  </head>
+  <body>
+    
+    <a href="https://github.com/benignware-labs/nformat"><img style="position: fixed; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
+    
+    <article class="markdown-body"><h1 id="nformat">nformat</h1>
+<blockquote>
+<p>Lightweight number formatting library.</p>
+</blockquote>
+<h2 id="locales">Locales</h2>
+<p><em>en, th, de, ro, fr, es, br, bg, it, nl, pt, in, mk, tr</em></p>
+<h2 id="usage">Usage</h2>
+<p>Include the library</p>
+<div><script src="nformat.min.js"></script>
+</div>
+
+
+
+<div class="highlight"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;nformat.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</pre></div>
+<h3 id="format">Format</h3>
+<p><code>nformat(number, pattern, locale)</code></p>
+<script>var string = nformat(1234567.89, '#,###.##', 'fr');
+console.log(string) // 1 234 567,89
+</script>
+
+
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">string</span> <span class="o">=</span> <span class="nx">nformat</span><span class="p">(</span><span class="mf">1234567.89</span><span class="p">,</span> <span class="s1">&#39;#,###.##&#39;</span><span class="p">,</span> <span class="s1">&#39;fr&#39;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">string</span><span class="p">)</span> <span class="c1">// 1 234 567,89</span>
+</pre></div>
+<h3 id="parse">Parse</h3>
+<p><code>nformat.parse(string, pattern, locale)</code></p>
+<script>var number = nformat.parse('1 234 567,89', '#,###.#', 'fr');
+console.log(number) // 1234567.89
+</script>
+
+
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">number</span> <span class="o">=</span> <span class="nx">nformat</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="s1">&#39;1 234 567,89&#39;</span><span class="p">,</span> <span class="s1">&#39;#,###.#&#39;</span><span class="p">,</span> <span class="s1">&#39;fr&#39;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">number</span><span class="p">)</span> <span class="c1">// 1234567.89</span>
+</pre></div>
+<h3 id="detect">Detect</h3>
+<p><code>nformat.detect(number, string)</code></p>
+<script>var format = nformat.detect(1234567.89, '1 234 567,89');
+console.log(format.pattern, format.locale) // #,###.## fr
+</script>
+
+
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">format</span> <span class="o">=</span> <span class="nx">nformat</span><span class="p">.</span><span class="nx">detect</span><span class="p">(</span><span class="mf">1234567.89</span><span class="p">,</span> <span class="s1">&#39;1 234 567,89&#39;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">format</span><span class="p">.</span><span class="nx">pattern</span><span class="p">,</span> <span class="nx">format</span><span class="p">.</span><span class="nx">locale</span><span class="p">)</span> <span class="c1">// #,###.## fr</span>
+</pre></div>
+<h2 id="pattern-identifiers">Pattern identifiers</h2>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>0</td>
+    <td>Digit</td>
+  </tr>
+  <tr>
+    <td>#</td>
+    <td>Digit, zero shows as absent</td>
+  </tr>
+  <tr>
+    <td>.</td>
+    <td>Decimal separator or monetary decimal separator</td>
+  </tr>
+  <tr>
+    <td>-</td>
+    <td>Minus sign</td>
+  </tr>
+  <tr>
+    <td>,</td>
+    <td>Grouping separator</td>
+  </tr>
+  <tr>
+    <td>%</td>
+    <td>Multiply by 100 and show as percentage </td>
+  </tr>
+</table>
+</article>
+    <footer>
+      <div class="disclaimer">
+        
+           &copy; 2015
+          
+            <a href="https://github.com/benignware">
+          
+            Benignware
+          
+            </a>
+          
+        
+      </div>
+      <nav>
+        <ul>
+          
+            <li>v0.0.1pre</li>
+          
+          
+            <li><a href="https://github.com/benignware-labs/nformat/archive/v0.0.1pre.zip">Download</a></li>
+          
+          
+            <li><a href="https://github.com/benignware-labs/nformat/issues">Bugs</a></li>
+          
+        </ul>
+      </nav>
+      
+    </footer>
+  </body>
+</html>
