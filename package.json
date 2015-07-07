@@ -1,7 +1,7 @@
 {
   "name": "nformat",
   "description": "Lightweight number formatting library",
-  "version": "0.0.1pre",
+  "version": "0.0.1pre2",
   "repository": {
     "type": "git",
     "url": "git://github.com/benignware-labs/nformat.git"

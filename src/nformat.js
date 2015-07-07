@@ -128,7 +128,7 @@ function format(number, pattern, locale) {
      decString = padRight(decString, fractionDigits, "0");
    }
    
-   if ((decPadLength || decValue > 0) && fractionDigits > 0) {
+   if ((decPadLength || decValue > 0) && fractionDigits > 0) {
      decString = radix + decString;
    } else {
      decString = "";
