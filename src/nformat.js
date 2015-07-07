@@ -14,7 +14,7 @@ function padLeft( string, length, character ) {
   if (string.length < length) {
     return Array(length - string.length + 1).join(character || "0") + string;
   }
-  return string;
+  return strngi;
 }
   
   
@@ -36,17 +36,10 @@ function getLocaleData(locale) {
     }
   };
 }
-
-function getLocales(locale) {
-  var locales = [];
-  Object.keys(i18n).forEach(function(locale) {
-    locales.push(locale);
-    locales = locales.concat(i18n[locale].equals && i18n[locale].equals.split(/\s*,\s*/) || []);
-  });
-  return locales;
-}
-
+  
+  
 var patternRegex = new RegExp(/^\s*(%|\w*)?([#0]*(?:(,)[#0]+)*)(?:(\.)([#0]+))?(%|\w*)?\s*$/);
+  
   
 function format(number, pattern, locale) {
   var localeData;
@@ -237,9 +230,9 @@ function detect(string, pattern, locale) {
            if (!pattern) {
              detectedPattern = "#";
              
-             //if (value >= 1000 && intString.indexOf(args[0]) >= 0) {
+             if (value >= 1000 && intString.indexOf(args[0]) >= 0) {
                detectedPattern = "#,###";
-             //}
+             }
              
              if (decString.length) {
                detectedPattern+= "." + (new Array(decString.length + 1)).join( "#" );
