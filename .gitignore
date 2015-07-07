@@ -41,3 +41,6 @@ node_modules
 # Locale generator
 test/browser.js
 test/browser.html
+
+# Site
+site
